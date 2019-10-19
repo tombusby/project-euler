@@ -1,7 +1,9 @@
 
 hasFactors :: [Int] -> Int -> Bool
-hasFactors xs n = or $ map ((==0) . mod n) xs
+hasFactors ps n = or $ map ((==0) . mod n) ps
 
+-- This is inefficient: no point checking if factor of 7 for 11 etc
+-- Think about improving this to reduce num of comparisons.
 enumPrimes :: [Int]
 enumPrimes = enumPrimes' [] 2
   where
